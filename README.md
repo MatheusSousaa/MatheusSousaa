@@ -76,15 +76,15 @@ Status: Disponível para vagas de Estágio ou Júnior
 
 ---
 
-### $ ./stats --theme=matrix
+### $ ./stats
 
 <div align="center">
-  <img height="175em" src="https://github-readme-stats.vercel.app/api?username=MatheusSousaa&show_icons=true&theme=matrix&include_all_commits=true&count_private=true&hide_border=true" />
-  <img height="175em" src="https://github-readme-stats.vercel.app/api/top-langs/?username=MatheusSousaa&layout=compact&langs_count=6&theme=matrix&hide_border=true" />
+  <img height="175em" src="https://github-readme-stats.vercel.app/api?username=MatheusSousaa&show_icons=true&bg_color=0d1117&text_color=7ee787&icon_color=00ff66&title_color=00ff66&hide_border=true" />
+  <img height="175em" src="https://github-readme-stats.vercel.app/api/top-langs/?username=MatheusSousaa&layout=compact&langs_count=6&bg_color=0d1117&text_color=7ee787&title_color=00ff66&hide_border=true" />
 </div>
 
 <div align="center">
-  <img height="160em" src="https://streak-stats.demolab.com?user=MatheusSousaa&theme=matrix&hide_border=true" />
+  <img height="160em" src="https://streak-stats.demolab.com?user=MatheusSousaa&background=0D1117&ring=00FF66&fire=00FF66&currStreakNum=00FF66&currStreakLabel=00FF66&sideNums=7EE787&sideLabels=7EE787&dates=8B949E&hide_border=true" />
 </div>
 
 <br/>
