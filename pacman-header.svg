@@ -1,237 +1,178 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 850 280" width="100%" height="280">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 850 210" width="100%" height="210">
   <defs>
     <style>
-      @import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&amp;family=Fira+Code:wght@600&amp;display=swap');
-      
-      .arcade-title {
-        font-family: 'Press Start 2P', monospace, 'Courier New';
-        font-size: 26px;
-        fill: #FFE600;
-        text-shadow: 0 0 10px rgba(255, 230, 0, 0.7);
-        text-anchor: middle;
-      }
-      .arcade-sub {
-        font-family: 'Press Start 2P', monospace;
-        font-size: 11px;
-        fill: #00FF66;
-        text-anchor: middle;
-        letter-spacing: 2px;
-      }
-      .arcade-score {
-        font-family: 'Press Start 2P', monospace;
-        font-size: 10px;
+      .title {
+        font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Fira Code', Roboto, 'Courier New', monospace;
+        font-size: 32px;
+        font-weight: 800;
         fill: #FFFFFF;
+        letter-spacing: 4px;
+        text-anchor: middle;
+      }
+      .subtitle {
+        font-family: 'Fira Code', 'Courier New', monospace;
+        font-size: 13px;
+        font-weight: 600;
+        fill: #00FF66;
+        letter-spacing: 3px;
+        text-anchor: middle;
+      }
+      .tag {
+        font-family: 'Fira Code', monospace;
+        font-size: 11px;
+        fill: #8b949e;
+        letter-spacing: 1.5px;
+        text-anchor: middle;
       }
       .wall {
-        stroke: #2121de;
-        stroke-width: 4;
+        stroke: #1f6feb;
+        stroke-width: 2.5;
         fill: none;
         stroke-linejoin: round;
-        filter: drop-shadow(0 0 3px #2121de);
       }
-      .inner-wall {
-        stroke: #0a0a5c;
-        stroke-width: 1.5;
+      .wall-glow {
+        stroke: #1f6feb;
+        stroke-width: 6;
         fill: none;
-      }
-      .dot {
-        fill: #ffb897;
-      }
-      .power-pellet {
-        fill: #ffb897;
-        animation: blink 0.4s infinite alternate;
-      }
-      @keyframes blink {
-        from { opacity: 1; r: 6; }
-        to { opacity: 0.2; r: 4; }
+        opacity: 0.15;
       }
 
-      /* Pacman and Ghosts moving along the outer corridor track */
-      @keyframes run-track {
-        0% { transform: translate(65px, 55px) rotate(0deg); }
-        35% { transform: translate(785px, 55px) rotate(0deg); }
-        37% { transform: translate(785px, 55px) rotate(90deg); }
-        48% { transform: translate(785px, 225px) rotate(90deg); }
-        50% { transform: translate(785px, 225px) rotate(180deg); }
-        85% { transform: translate(65px, 225px) rotate(180deg); }
-        87% { transform: translate(65px, 225px) rotate(270deg); }
-        98% { transform: translate(65px, 55px) rotate(270deg); }
-        100% { transform: translate(65px, 55px) rotate(360deg); }
-      }
-
+      /* Chomp Animation */
       @keyframes chomp-top {
         0%, 100% { transform: rotate(0deg); }
-        50% { transform: rotate(-35deg); }
+        50% { transform: rotate(-32deg); }
       }
       @keyframes chomp-bottom {
         0%, 100% { transform: rotate(0deg); }
-        50% { transform: rotate(35deg); }
+        50% { transform: rotate(32deg); }
       }
 
-      .pacman-runner {
-        animation: run-track 10s linear infinite;
-      }
-      .ghost-runner-inky {
-        animation: run-track 10s linear infinite;
-        animation-delay: -0.4s;
-      }
-      .ghost-runner-blinky {
-        animation: run-track 10s linear infinite;
-        animation-delay: -0.8s;
-      }
-
-      .mouth-top {
+      .mouth-t {
         fill: #FFE600;
-        transform-origin: 0px 0px;
+        transform-origin: 0 0;
         animation: chomp-top 0.22s infinite alternate;
       }
-      .mouth-bottom {
+      .mouth-b {
         fill: #FFE600;
-        transform-origin: 0px 0px;
+        transform-origin: 0 0;
         animation: chomp-bottom 0.22s infinite alternate;
+      }
+
+      /* Smooth Horizontal Patrol: runs from left to right smoothly */
+      @keyframes smooth-patrol {
+        0% { transform: translateX(-100px); }
+        100% { transform: translateX(950px); }
+      }
+
+      .pacman-group {
+        animation: smooth-patrol 11s linear infinite;
+      }
+      .ghost-inky {
+        animation: smooth-patrol 11s linear infinite;
+        animation-delay: -0.45s;
+      }
+      .ghost-blinky {
+        animation: smooth-patrol 11s linear infinite;
+        animation-delay: -0.9s;
+      }
+      .ghost-clyde {
+        animation: smooth-patrol 11s linear infinite;
+        animation-delay: -1.35s;
+      }
+
+      /* Power pellet blink */
+      @keyframes pulse {
+        from { opacity: 1; }
+        to { opacity: 0.25; }
+      }
+      .pellet-blink {
+        animation: pulse 0.5s infinite alternate;
       }
     </style>
   </defs>
 
-  <!-- Background -->
-  <rect width="100%" height="100%" fill="#08080c" rx="14"/>
+  <!-- Card Background -->
+  <rect width="100%" height="100%" fill="#0d1117" rx="12" stroke="#30363d" stroke-width="1.5"/>
 
-  <!-- Top Arcade Header: Scores -->
-  <g transform="translate(45, 22)">
-    <text class="arcade-score" fill="#FF0000" x="0" y="0">1UP</text>
-    <text class="arcade-score" x="0" y="13">02450</text>
-    <text class="arcade-score" fill="#FF0000" x="330" y="0">HIGH SCORE</text>
-    <text class="arcade-score" x="370" y="13">99990</text>
-    <text class="arcade-score" fill="#00FF66" x="690" y="0">LEVEL</text>
-    <text class="arcade-score" x="705" y="13">JAVA</text>
+  <!-- Maze Neon Outer Frame -->
+  <rect x="25" y="20" width="800" height="170" rx="10" class="wall-glow"/>
+  <rect x="25" y="20" width="800" height="170" rx="10" class="wall"/>
+
+  <!-- Decorative Maze Corners / Accents -->
+  <path d="M 45 40 H 120 V 75 H 45" class="wall"/>
+  <path d="M 805 40 H 730 V 75 H 805" class="wall"/>
+  <path d="M 45 135 H 120 V 170" class="wall"/>
+  <path d="M 805 135 H 730 V 170" class="wall"/>
+
+  <!-- Center Content -->
+  <g transform="translate(425, 68)">
+    <text y="-14" class="tag">&lt; SOFTWARE ENGINEER / BACKEND /&gt;</text>
+    <text y="28" class="title">MATHEUS SOUSA</text>
+    <text y="58" class="subtitle">JAVA • SPRING BOOT • POSTGRESQL • REST APIs</text>
   </g>
 
-  <!-- Outer Maze Boundaries -->
-  <rect x="30" y="32" width="790" height="220" rx="16" class="wall"/>
-  <rect x="36" y="38" width="778" height="208" rx="12" class="inner-wall"/>
+  <!-- Track Lane Divider -->
+  <line x1="30" y1="165" x2="820" y2="165" stroke="#21262d" stroke-width="1.5" stroke-dasharray="6 6"/>
 
-  <!-- Center Stage / Bunker for Name -->
-  <rect x="180" y="75" width="490" height="134" rx="14" class="wall" stroke="#2121ff"/>
-  <rect x="186" y="81" width="478" height="122" rx="10" fill="#0d1117" stroke="#121248" stroke-width="2"/>
-
-  <!-- Ghost Door (T-bar) on top of the bunker -->
-  <line x1="390" y1="75" x2="460" y2="75" stroke="#ffb8de" stroke-width="5" stroke-linecap="round"/>
-
-  <!-- Maze Obstacles (Left and Right Blocks) -->
-  <path d="M 60 75 H 140 V 105 H 60 Z" class="wall"/>
-  <path d="M 60 145 H 140 V 205 H 60 Z" class="wall"/>
-  <path d="M 710 75 H 790 V 105 H 710 Z" class="wall"/>
-  <path d="M 710 145 H 790 V 205 H 710 Z" class="wall"/>
-
-  <!-- Maze Dots (Pellets) around the track -->
-  <!-- Top Lane -->
-  <g class="dot">
-    <circle cx="85" cy="55" r="3"/>
-    <circle cx="120" cy="55" r="3"/>
-    <circle cx="155" cy="55" r="3"/>
-    <circle cx="190" cy="55" r="3"/>
-    <circle cx="225" cy="55" r="3"/>
-    <circle cx="260" cy="55" r="3"/>
-    <circle cx="295" cy="55" r="3"/>
-    <circle cx="330" cy="55" r="3"/>
-    <circle cx="365" cy="55" r="3"/>
-    <circle cx="400" cy="55" r="3"/>
-    <circle cx="435" cy="55" r="3"/>
-    <circle cx="470" cy="55" r="3"/>
-    <circle cx="505" cy="55" r="3"/>
-    <circle cx="540" cy="55" r="3"/>
-    <circle cx="575" cy="55" r="3"/>
-    <circle cx="610" cy="55" r="3"/>
-    <circle cx="645" cy="55" r="3"/>
-    <circle cx="680" cy="55" r="3"/>
-    <circle cx="715" cy="55" r="3"/>
-    <circle cx="750" cy="55" r="3"/>
+  <!-- Dots on track -->
+  <g fill="#ffb897" opacity="0.7">
+    <circle cx="70" cy="165" r="2.5"/>
+    <circle cx="110" cy="165" r="2.5"/>
+    <circle cx="150" cy="165" r="2.5"/>
+    <circle cx="190" cy="165" r="2.5"/>
+    <circle cx="230" cy="165" r="2.5"/>
+    <circle cx="270" cy="165" r="2.5"/>
+    <circle cx="310" cy="165" r="2.5"/>
+    <circle cx="350" cy="165" r="2.5"/>
+    <circle cx="390" cy="165" r="2.5"/>
+    <circle cx="430" cy="165" r="2.5"/>
+    <circle cx="470" cy="165" r="2.5"/>
+    <circle cx="510" cy="165" r="2.5"/>
+    <circle cx="550" cy="165" r="2.5"/>
+    <circle cx="590" cy="165" r="2.5"/>
+    <circle cx="630" cy="165" r="2.5"/>
+    <circle cx="670" cy="165" r="2.5"/>
+    <circle cx="710" cy="165" r="2.5"/>
+    <circle cx="750" cy="165" r="2.5"/>
+    <circle cx="790" cy="165" r="2.5"/>
   </g>
 
-  <!-- Bottom Lane -->
-  <g class="dot">
-    <circle cx="85" cy="225" r="3"/>
-    <circle cx="120" cy="225" r="3"/>
-    <circle cx="155" cy="225" r="3"/>
-    <circle cx="190" cy="225" r="3"/>
-    <circle cx="225" cy="225" r="3"/>
-    <circle cx="260" cy="225" r="3"/>
-    <circle cx="295" cy="225" r="3"/>
-    <circle cx="330" cy="225" r="3"/>
-    <circle cx="365" cy="225" r="3"/>
-    <circle cx="400" cy="225" r="3"/>
-    <circle cx="435" cy="225" r="3"/>
-    <circle cx="470" cy="225" r="3"/>
-    <circle cx="505" cy="225" r="3"/>
-    <circle cx="540" cy="225" r="3"/>
-    <circle cx="575" cy="225" r="3"/>
-    <circle cx="610" cy="225" r="3"/>
-    <circle cx="645" cy="225" r="3"/>
-    <circle cx="680" cy="225" r="3"/>
-    <circle cx="715" cy="225" r="3"/>
-    <circle cx="750" cy="225" r="3"/>
+  <!-- Power Pellets at Ends -->
+  <circle cx="48" cy="165" r="5" fill="#FFE600" class="pellet-blink"/>
+  <circle cx="802" cy="165" r="5" fill="#FFE600" class="pellet-blink"/>
+
+  <!-- Smooth Moving Characters -->
+  <!-- Ghost 3: Clyde (Orange) -->
+  <g class="ghost-clyde" transform="translate(0, 165)">
+    <path d="M -10 0 C -10 -11, 10 -11, 10 0 L 10 7 L 6 4 L 3 7 L 0 4 L -3 7 L -6 4 L -10 7 Z" fill="#FFB847"/>
+    <circle cx="-3" cy="-3" r="2.8" fill="#FFFFFF"/>
+    <circle cx="4" cy="-3" r="2.8" fill="#FFFFFF"/>
+    <circle cx="-2" cy="-3" r="1.4" fill="#0000FF"/>
+    <circle cx="5" cy="-3" r="1.4" fill="#0000FF"/>
   </g>
 
-  <!-- Power Pellets at 4 corners -->
-  <circle cx="65" cy="55" r="6" class="power-pellet"/>
-  <circle cx="785" cy="55" r="6" class="power-pellet"/>
-  <circle cx="65" cy="225" r="6" class="power-pellet"/>
-  <circle cx="785" cy="225" r="6" class="power-pellet"/>
-
-  <!-- Center Content: Name & Profession -->
-  <g>
-    <!-- Retro Title -->
-    <text x="425" y="125" class="arcade-title">MATHEUS SOUSA</text>
-    <text x="425" y="152" class="arcade-sub">&lt; BACKEND DEVELOPER /&gt;</text>
-    
-    <!-- Mini Badges inside Bunker -->
-    <g transform="translate(245, 170)">
-      <rect x="0" y="0" width="85" height="19" rx="4" fill="#161b22" stroke="#ED8B00" stroke-width="1.2"/>
-      <text x="42" y="13" font-family="'Press Start 2P', monospace" font-size="8" fill="#ED8B00" text-anchor="middle">JAVA</text>
-
-      <rect x="95" y="0" width="145" height="19" rx="4" fill="#161b22" stroke="#6DB33F" stroke-width="1.2"/>
-      <text x="167" y="13" font-family="'Press Start 2P', monospace" font-size="8" fill="#6DB33F" text-anchor="middle">SPRING BOOT</text>
-
-      <rect x="250" y="0" width="110" height="19" rx="4" fill="#161b22" stroke="#00FF66" stroke-width="1.2"/>
-      <text x="305" y="13" font-family="'Press Start 2P', monospace" font-size="8" fill="#00FF66" text-anchor="middle">POSTGRES</text>
-    </g>
+  <!-- Ghost 2: Inky (Cyan) -->
+  <g class="ghost-inky" transform="translate(0, 165)">
+    <path d="M -10 0 C -10 -11, 10 -11, 10 0 L 10 7 L 6 4 L 3 7 L 0 4 L -3 7 L -6 4 L -10 7 Z" fill="#00FFFF"/>
+    <circle cx="-3" cy="-3" r="2.8" fill="#FFFFFF"/>
+    <circle cx="4" cy="-3" r="2.8" fill="#FFFFFF"/>
+    <circle cx="-2" cy="-3" r="1.4" fill="#0000FF"/>
+    <circle cx="5" cy="-3" r="1.4" fill="#0000FF"/>
   </g>
 
-  <!-- Animated Characters Patroling Around Maze Track -->
-  <!-- Red Ghost (Blinky) chasing behind Inky -->
-  <g class="ghost-runner-blinky">
-    <g transform="translate(0, -1)">
-      <path d="M -12 6 C -12 -8, 12 -8, 12 6 L 12 12 L 8 9 L 4 12 L 0 9 L -4 12 L -8 9 L -12 12 Z" fill="#FF0000"/>
-      <circle cx="-4" cy="0" r="3.5" fill="#FFFFFF"/>
-      <circle cx="4" cy="0" r="3.5" fill="#FFFFFF"/>
-      <circle cx="-3" cy="0" r="1.8" fill="#0000FF"/>
-      <circle cx="5" cy="0" r="1.8" fill="#0000FF"/>
-    </g>
+  <!-- Ghost 1: Blinky (Red) -->
+  <g class="ghost-blinky" transform="translate(0, 165)">
+    <path d="M -10 0 C -10 -11, 10 -11, 10 0 L 10 7 L 6 4 L 3 7 L 0 4 L -3 7 L -6 4 L -10 7 Z" fill="#FF0000"/>
+    <circle cx="-3" cy="-3" r="2.8" fill="#FFFFFF"/>
+    <circle cx="4" cy="-3" r="2.8" fill="#FFFFFF"/>
+    <circle cx="-2" cy="-3" r="1.4" fill="#0000FF"/>
+    <circle cx="5" cy="-3" r="1.4" fill="#0000FF"/>
   </g>
 
-  <!-- Cyan Ghost (Inky) chasing Pacman -->
-  <g class="ghost-runner-inky">
-    <g transform="translate(0, -1)">
-      <path d="M -12 6 C -12 -8, 12 -8, 12 6 L 12 12 L 8 9 L 4 12 L 0 9 L -4 12 L -8 9 L -12 12 Z" fill="#00FFFF"/>
-      <circle cx="-4" cy="0" r="3.5" fill="#FFFFFF"/>
-      <circle cx="4" cy="0" r="3.5" fill="#FFFFFF"/>
-      <circle cx="-3" cy="0" r="1.8" fill="#0000FF"/>
-      <circle cx="5" cy="0" r="1.8" fill="#0000FF"/>
-    </g>
-  </g>
-
-  <!-- Pac-Man Leading the Race & Chomping -->
-  <g class="pacman-runner">
-    <path class="mouth-top" d="M 0 0 L 14 0 A 14 14 0 0 0 -14 0 Z"/>
-    <path class="mouth-bottom" d="M 0 0 L 14 0 A 14 14 0 0 1 -14 0 Z"/>
-  </g>
-
-  <!-- Classic Cherry Icon in Left Bottom -->
-  <g transform="translate(155, 192) scale(0.9)">
-    <circle cx="0" cy="5" r="4.5" fill="#FF0000"/>
-    <circle cx="7" cy="7" r="4.5" fill="#FF0000"/>
-    <path d="M 0 5 Q 3 -4 8 -6 Q 10 -3 7 7" stroke="#8B5A2B" stroke-width="1.5" fill="none"/>
-    <path d="M 8 -6 Q 12 -10 14 -7 Q 10 -4 8 -6" fill="#00FF00"/>
+  <!-- Pac-Man Leading -->
+  <g class="pacman-group" transform="translate(0, 165)">
+    <path class="mouth-t" d="M 0 0 L 12 0 A 12 12 0 0 0 -12 0 Z"/>
+    <path class="mouth-b" d="M 0 0 L 12 0 A 12 12 0 0 1 -12 0 Z"/>
   </g>
 
 </svg>
