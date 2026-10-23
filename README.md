@@ -1,6 +1,8 @@
 <div align="center">
-  <img src="https://capsule-render.vercel.app/api?type=rect&color=0:0d1117,100:161b22&height=180&section=header&text=matheus@dev:~%24&fontSize=42&fontColor=00FF66&desc=%24%20cat%20profile.txt%20%7C%20grep%20--role%3D%22Junior%20%2F%20Intern%20Backend%22&descAlignY=65&descFontSize=17&descColor=7ee787" width="100%"/>
+  <img src="./pacman-header.svg" width="100%" alt="Pac-Man Arcade Matheus Sousa"/>
 </div>
+
+<br/>
 
 <div align="center">
   <a href="https://github.com/MatheusSousaa">
@@ -26,6 +28,18 @@ Matheus Sousa Soares | Estudante de Engenharia de Software
 Foco: Backend com Java & Spring Boot
 Status: Disponível para vagas de Estágio ou Júnior
 ```
+
+### 🎮 $ ./pacman --contribution-graph
+
+<div align="center">
+  <picture>
+    <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/MatheusSousaa/MatheusSousaa/output/pacman-contribution-graph-dark.svg">
+    <source media="(prefers-color-scheme: light)" srcset="https://raw.githubusercontent.com/MatheusSousaa/MatheusSousaa/output/pacman-contribution-graph.svg">
+    <img alt="Pac-Man contribution graph" src="https://raw.githubusercontent.com/MatheusSousaa/MatheusSousaa/output/pacman-contribution-graph.svg" width="100%">
+  </picture>
+</div>
+
+---
 
 ### $ cat sobre-mim.md
 
@@ -90,5 +104,5 @@ Status: Disponível para vagas de Estágio ou Júnior
 <br/>
 
 <div align="center">
-  <img src="https://capsule-render.vercel.app/api?type=rect&color=0:0d1117,100:161b22&height=70&section=footer&text=%5BPROCESS%20COMPLETED%20-%20EXIT%200%5D&fontSize=16&fontColor=00FF66" width="100%"/>
+  <img src="https://capsule-render.vercel.app/api?type=rect&color=0:0d1117,100:161b22&height=70&section=footer&text=%5BGAME%20OVER%20-%20PRESS%20START%20TO%20CONTINUE%5D&fontSize=16&fontColor=00FF66" width="100%"/>
 </div>

@@ -1,0 +1,237 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 850 280" width="100%" height="280">
+  <defs>
+    <style>
+      @import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&amp;family=Fira+Code:wght@600&amp;display=swap');
+      
+      .arcade-title {
+        font-family: 'Press Start 2P', monospace, 'Courier New';
+        font-size: 26px;
+        fill: #FFE600;
+        text-shadow: 0 0 10px rgba(255, 230, 0, 0.7);
+        text-anchor: middle;
+      }
+      .arcade-sub {
+        font-family: 'Press Start 2P', monospace;
+        font-size: 11px;
+        fill: #00FF66;
+        text-anchor: middle;
+        letter-spacing: 2px;
+      }
+      .arcade-score {
+        font-family: 'Press Start 2P', monospace;
+        font-size: 10px;
+        fill: #FFFFFF;
+      }
+      .wall {
+        stroke: #2121de;
+        stroke-width: 4;
+        fill: none;
+        stroke-linejoin: round;
+        filter: drop-shadow(0 0 3px #2121de);
+      }
+      .inner-wall {
+        stroke: #0a0a5c;
+        stroke-width: 1.5;
+        fill: none;
+      }
+      .dot {
+        fill: #ffb897;
+      }
+      .power-pellet {
+        fill: #ffb897;
+        animation: blink 0.4s infinite alternate;
+      }
+      @keyframes blink {
+        from { opacity: 1; r: 6; }
+        to { opacity: 0.2; r: 4; }
+      }
+
+      /* Pacman and Ghosts moving along the outer corridor track */
+      @keyframes run-track {
+        0% { transform: translate(65px, 55px) rotate(0deg); }
+        35% { transform: translate(785px, 55px) rotate(0deg); }
+        37% { transform: translate(785px, 55px) rotate(90deg); }
+        48% { transform: translate(785px, 225px) rotate(90deg); }
+        50% { transform: translate(785px, 225px) rotate(180deg); }
+        85% { transform: translate(65px, 225px) rotate(180deg); }
+        87% { transform: translate(65px, 225px) rotate(270deg); }
+        98% { transform: translate(65px, 55px) rotate(270deg); }
+        100% { transform: translate(65px, 55px) rotate(360deg); }
+      }
+
+      @keyframes chomp-top {
+        0%, 100% { transform: rotate(0deg); }
+        50% { transform: rotate(-35deg); }
+      }
+      @keyframes chomp-bottom {
+        0%, 100% { transform: rotate(0deg); }
+        50% { transform: rotate(35deg); }
+      }
+
+      .pacman-runner {
+        animation: run-track 10s linear infinite;
+      }
+      .ghost-runner-inky {
+        animation: run-track 10s linear infinite;
+        animation-delay: -0.4s;
+      }
+      .ghost-runner-blinky {
+        animation: run-track 10s linear infinite;
+        animation-delay: -0.8s;
+      }
+
+      .mouth-top {
+        fill: #FFE600;
+        transform-origin: 0px 0px;
+        animation: chomp-top 0.22s infinite alternate;
+      }
+      .mouth-bottom {
+        fill: #FFE600;
+        transform-origin: 0px 0px;
+        animation: chomp-bottom 0.22s infinite alternate;
+      }
+    </style>
+  </defs>
+
+  <!-- Background -->
+  <rect width="100%" height="100%" fill="#08080c" rx="14"/>
+
+  <!-- Top Arcade Header: Scores -->
+  <g transform="translate(45, 22)">
+    <text class="arcade-score" fill="#FF0000" x="0" y="0">1UP</text>
+    <text class="arcade-score" x="0" y="13">02450</text>
+    <text class="arcade-score" fill="#FF0000" x="330" y="0">HIGH SCORE</text>
+    <text class="arcade-score" x="370" y="13">99990</text>
+    <text class="arcade-score" fill="#00FF66" x="690" y="0">LEVEL</text>
+    <text class="arcade-score" x="705" y="13">JAVA</text>
+  </g>
+
+  <!-- Outer Maze Boundaries -->
+  <rect x="30" y="32" width="790" height="220" rx="16" class="wall"/>
+  <rect x="36" y="38" width="778" height="208" rx="12" class="inner-wall"/>
+
+  <!-- Center Stage / Bunker for Name -->
+  <rect x="180" y="75" width="490" height="134" rx="14" class="wall" stroke="#2121ff"/>
+  <rect x="186" y="81" width="478" height="122" rx="10" fill="#0d1117" stroke="#121248" stroke-width="2"/>
+
+  <!-- Ghost Door (T-bar) on top of the bunker -->
+  <line x1="390" y1="75" x2="460" y2="75" stroke="#ffb8de" stroke-width="5" stroke-linecap="round"/>
+
+  <!-- Maze Obstacles (Left and Right Blocks) -->
+  <path d="M 60 75 H 140 V 105 H 60 Z" class="wall"/>
+  <path d="M 60 145 H 140 V 205 H 60 Z" class="wall"/>
+  <path d="M 710 75 H 790 V 105 H 710 Z" class="wall"/>
+  <path d="M 710 145 H 790 V 205 H 710 Z" class="wall"/>
+
+  <!-- Maze Dots (Pellets) around the track -->
+  <!-- Top Lane -->
+  <g class="dot">
+    <circle cx="85" cy="55" r="3"/>
+    <circle cx="120" cy="55" r="3"/>
+    <circle cx="155" cy="55" r="3"/>
+    <circle cx="190" cy="55" r="3"/>
+    <circle cx="225" cy="55" r="3"/>
+    <circle cx="260" cy="55" r="3"/>
+    <circle cx="295" cy="55" r="3"/>
+    <circle cx="330" cy="55" r="3"/>
+    <circle cx="365" cy="55" r="3"/>
+    <circle cx="400" cy="55" r="3"/>
+    <circle cx="435" cy="55" r="3"/>
+    <circle cx="470" cy="55" r="3"/>
+    <circle cx="505" cy="55" r="3"/>
+    <circle cx="540" cy="55" r="3"/>
+    <circle cx="575" cy="55" r="3"/>
+    <circle cx="610" cy="55" r="3"/>
+    <circle cx="645" cy="55" r="3"/>
+    <circle cx="680" cy="55" r="3"/>
+    <circle cx="715" cy="55" r="3"/>
+    <circle cx="750" cy="55" r="3"/>
+  </g>
+
+  <!-- Bottom Lane -->
+  <g class="dot">
+    <circle cx="85" cy="225" r="3"/>
+    <circle cx="120" cy="225" r="3"/>
+    <circle cx="155" cy="225" r="3"/>
+    <circle cx="190" cy="225" r="3"/>
+    <circle cx="225" cy="225" r="3"/>
+    <circle cx="260" cy="225" r="3"/>
+    <circle cx="295" cy="225" r="3"/>
+    <circle cx="330" cy="225" r="3"/>
+    <circle cx="365" cy="225" r="3"/>
+    <circle cx="400" cy="225" r="3"/>
+    <circle cx="435" cy="225" r="3"/>
+    <circle cx="470" cy="225" r="3"/>
+    <circle cx="505" cy="225" r="3"/>
+    <circle cx="540" cy="225" r="3"/>
+    <circle cx="575" cy="225" r="3"/>
+    <circle cx="610" cy="225" r="3"/>
+    <circle cx="645" cy="225" r="3"/>
+    <circle cx="680" cy="225" r="3"/>
+    <circle cx="715" cy="225" r="3"/>
+    <circle cx="750" cy="225" r="3"/>
+  </g>
+
+  <!-- Power Pellets at 4 corners -->
+  <circle cx="65" cy="55" r="6" class="power-pellet"/>
+  <circle cx="785" cy="55" r="6" class="power-pellet"/>
+  <circle cx="65" cy="225" r="6" class="power-pellet"/>
+  <circle cx="785" cy="225" r="6" class="power-pellet"/>
+
+  <!-- Center Content: Name & Profession -->
+  <g>
+    <!-- Retro Title -->
+    <text x="425" y="125" class="arcade-title">MATHEUS SOUSA</text>
+    <text x="425" y="152" class="arcade-sub">&lt; BACKEND DEVELOPER /&gt;</text>
+    
+    <!-- Mini Badges inside Bunker -->
+    <g transform="translate(245, 170)">
+      <rect x="0" y="0" width="85" height="19" rx="4" fill="#161b22" stroke="#ED8B00" stroke-width="1.2"/>
+      <text x="42" y="13" font-family="'Press Start 2P', monospace" font-size="8" fill="#ED8B00" text-anchor="middle">JAVA</text>
+
+      <rect x="95" y="0" width="145" height="19" rx="4" fill="#161b22" stroke="#6DB33F" stroke-width="1.2"/>
+      <text x="167" y="13" font-family="'Press Start 2P', monospace" font-size="8" fill="#6DB33F" text-anchor="middle">SPRING BOOT</text>
+
+      <rect x="250" y="0" width="110" height="19" rx="4" fill="#161b22" stroke="#00FF66" stroke-width="1.2"/>
+      <text x="305" y="13" font-family="'Press Start 2P', monospace" font-size="8" fill="#00FF66" text-anchor="middle">POSTGRES</text>
+    </g>
+  </g>
+
+  <!-- Animated Characters Patroling Around Maze Track -->
+  <!-- Red Ghost (Blinky) chasing behind Inky -->
+  <g class="ghost-runner-blinky">
+    <g transform="translate(0, -1)">
+      <path d="M -12 6 C -12 -8, 12 -8, 12 6 L 12 12 L 8 9 L 4 12 L 0 9 L -4 12 L -8 9 L -12 12 Z" fill="#FF0000"/>
+      <circle cx="-4" cy="0" r="3.5" fill="#FFFFFF"/>
+      <circle cx="4" cy="0" r="3.5" fill="#FFFFFF"/>
+      <circle cx="-3" cy="0" r="1.8" fill="#0000FF"/>
+      <circle cx="5" cy="0" r="1.8" fill="#0000FF"/>
+    </g>
+  </g>
+
+  <!-- Cyan Ghost (Inky) chasing Pacman -->
+  <g class="ghost-runner-inky">
+    <g transform="translate(0, -1)">
+      <path d="M -12 6 C -12 -8, 12 -8, 12 6 L 12 12 L 8 9 L 4 12 L 0 9 L -4 12 L -8 9 L -12 12 Z" fill="#00FFFF"/>
+      <circle cx="-4" cy="0" r="3.5" fill="#FFFFFF"/>
+      <circle cx="4" cy="0" r="3.5" fill="#FFFFFF"/>
+      <circle cx="-3" cy="0" r="1.8" fill="#0000FF"/>
+      <circle cx="5" cy="0" r="1.8" fill="#0000FF"/>
+    </g>
+  </g>
+
+  <!-- Pac-Man Leading the Race & Chomping -->
+  <g class="pacman-runner">
+    <path class="mouth-top" d="M 0 0 L 14 0 A 14 14 0 0 0 -14 0 Z"/>
+    <path class="mouth-bottom" d="M 0 0 L 14 0 A 14 14 0 0 1 -14 0 Z"/>
+  </g>
+
+  <!-- Classic Cherry Icon in Left Bottom -->
+  <g transform="translate(155, 192) scale(0.9)">
+    <circle cx="0" cy="5" r="4.5" fill="#FF0000"/>
+    <circle cx="7" cy="7" r="4.5" fill="#FF0000"/>
+    <path d="M 0 5 Q 3 -4 8 -6 Q 10 -3 7 7" stroke="#8B5A2B" stroke-width="1.5" fill="none"/>
+    <path d="M 8 -6 Q 12 -10 14 -7 Q 10 -4 8 -6" fill="#00FF00"/>
+  </g>
+
+</svg>
