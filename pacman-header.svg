@@ -1,16 +1,16 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 850 210" width="100%" height="210">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 850 180" width="100%" height="180">
   <defs>
     <style>
       .title {
-        font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Fira Code', Roboto, 'Courier New', monospace;
-        font-size: 32px;
+        font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Fira Code', Roboto, monospace;
+        font-size: 30px;
         font-weight: 800;
         fill: #FFFFFF;
-        letter-spacing: 4px;
+        letter-spacing: 5px;
         text-anchor: middle;
       }
       .subtitle {
-        font-family: 'Fira Code', 'Courier New', monospace;
+        font-family: 'Fira Code', monospace;
         font-size: 13px;
         font-weight: 600;
         fill: #00FF66;
@@ -21,158 +21,124 @@
         font-family: 'Fira Code', monospace;
         font-size: 11px;
         fill: #8b949e;
-        letter-spacing: 1.5px;
+        letter-spacing: 2px;
         text-anchor: middle;
       }
       .wall {
         stroke: #1f6feb;
-        stroke-width: 2.5;
+        stroke-width: 2;
         fill: none;
-        stroke-linejoin: round;
-      }
-      .wall-glow {
-        stroke: #1f6feb;
-        stroke-width: 6;
-        fill: none;
-        opacity: 0.15;
       }
 
-      /* Chomp Animation */
-      @keyframes chomp-top {
-        0%, 100% { transform: rotate(0deg); }
-        50% { transform: rotate(-32deg); }
-      }
-      @keyframes chomp-bottom {
-        0%, 100% { transform: rotate(0deg); }
-        50% { transform: rotate(32deg); }
+      /* Single Chase Patrol: runs from left to right smoothly */
+      @keyframes patrol {
+        0% { transform: translateX(-160px); }
+        100% { transform: translateX(960px); }
       }
 
-      .mouth-t {
-        fill: #FFE600;
-        transform-origin: 0 0;
-        animation: chomp-top 0.22s infinite alternate;
-      }
-      .mouth-b {
-        fill: #FFE600;
-        transform-origin: 0 0;
-        animation: chomp-bottom 0.22s infinite alternate;
+      .chase-squad {
+        animation: patrol 8.5s linear infinite;
       }
 
-      /* Smooth Horizontal Patrol: runs from left to right smoothly */
-      @keyframes smooth-patrol {
-        0% { transform: translateX(-100px); }
-        100% { transform: translateX(950px); }
+      /* Pac-Man mouth chomping (scaling the mouth wedge) */
+      @keyframes chomp {
+        0%, 100% { transform: scaleY(0.05); }
+        50% { transform: scaleY(1); }
       }
 
-      .pacman-group {
-        animation: smooth-patrol 11s linear infinite;
-      }
-      .ghost-inky {
-        animation: smooth-patrol 11s linear infinite;
-        animation-delay: -0.45s;
-      }
-      .ghost-blinky {
-        animation: smooth-patrol 11s linear infinite;
-        animation-delay: -0.9s;
-      }
-      .ghost-clyde {
-        animation: smooth-patrol 11s linear infinite;
-        animation-delay: -1.35s;
+      .mouth-wedge {
+        fill: #0d1117;
+        transform-origin: 0px 0px;
+        animation: chomp 0.22s infinite alternate ease-in-out;
       }
 
-      /* Power pellet blink */
+      /* Power pellets blink */
       @keyframes pulse {
         from { opacity: 1; }
-        to { opacity: 0.25; }
+        to { opacity: 0.2; }
       }
-      .pellet-blink {
+      .blink {
         animation: pulse 0.5s infinite alternate;
       }
     </style>
   </defs>
 
-  <!-- Card Background -->
-  <rect width="100%" height="100%" fill="#0d1117" rx="12" stroke="#30363d" stroke-width="1.5"/>
+  <!-- Background -->
+  <rect width="100%" height="100%" fill="#0d1117" rx="10" stroke="#30363d" stroke-width="1.5"/>
 
-  <!-- Maze Neon Outer Frame -->
-  <rect x="25" y="20" width="800" height="170" rx="10" class="wall-glow"/>
-  <rect x="25" y="20" width="800" height="170" rx="10" class="wall"/>
+  <!-- Neon Blue Outer Maze Frame -->
+  <rect x="20" y="16" width="810" height="148" rx="8" class="wall"/>
 
-  <!-- Decorative Maze Corners / Accents -->
-  <path d="M 45 40 H 120 V 75 H 45" class="wall"/>
-  <path d="M 805 40 H 730 V 75 H 805" class="wall"/>
-  <path d="M 45 135 H 120 V 170" class="wall"/>
-  <path d="M 805 135 H 730 V 170" class="wall"/>
+  <!-- Corner Maze Accents -->
+  <path d="M 35 32 H 95 V 60 H 35" class="wall"/>
+  <path d="M 815 32 H 755 V 60 H 815" class="wall"/>
 
-  <!-- Center Content -->
-  <g transform="translate(425, 68)">
-    <text y="-14" class="tag">&lt; SOFTWARE ENGINEER / BACKEND /&gt;</text>
+  <!-- Center Text -->
+  <g transform="translate(425, 54)">
+    <text y="-8" class="tag">&lt; SOFTWARE ENGINEER / BACKEND /&gt;</text>
     <text y="28" class="title">MATHEUS SOUSA</text>
-    <text y="58" class="subtitle">JAVA • SPRING BOOT • POSTGRESQL • REST APIs</text>
+    <text y="56" class="subtitle">JAVA • SPRING BOOT • POSTGRESQL • REST APIs</text>
   </g>
 
-  <!-- Track Lane Divider -->
-  <line x1="30" y1="165" x2="820" y2="165" stroke="#21262d" stroke-width="1.5" stroke-dasharray="6 6"/>
+  <!-- Track Lane -->
+  <line x1="25" y1="140" x2="825" y2="140" stroke="#21262d" stroke-width="1.5" stroke-dasharray="6 6"/>
 
-  <!-- Dots on track -->
-  <g fill="#ffb897" opacity="0.7">
-    <circle cx="70" cy="165" r="2.5"/>
-    <circle cx="110" cy="165" r="2.5"/>
-    <circle cx="150" cy="165" r="2.5"/>
-    <circle cx="190" cy="165" r="2.5"/>
-    <circle cx="230" cy="165" r="2.5"/>
-    <circle cx="270" cy="165" r="2.5"/>
-    <circle cx="310" cy="165" r="2.5"/>
-    <circle cx="350" cy="165" r="2.5"/>
-    <circle cx="390" cy="165" r="2.5"/>
-    <circle cx="430" cy="165" r="2.5"/>
-    <circle cx="470" cy="165" r="2.5"/>
-    <circle cx="510" cy="165" r="2.5"/>
-    <circle cx="550" cy="165" r="2.5"/>
-    <circle cx="590" cy="165" r="2.5"/>
-    <circle cx="630" cy="165" r="2.5"/>
-    <circle cx="670" cy="165" r="2.5"/>
-    <circle cx="710" cy="165" r="2.5"/>
-    <circle cx="750" cy="165" r="2.5"/>
-    <circle cx="790" cy="165" r="2.5"/>
+  <!-- Dots on Track -->
+  <g fill="#ffb897" opacity="0.6">
+    <circle cx="60" cy="140" r="2.5"/>
+    <circle cx="100" cy="140" r="2.5"/>
+    <circle cx="140" cy="140" r="2.5"/>
+    <circle cx="180" cy="140" r="2.5"/>
+    <circle cx="220" cy="140" r="2.5"/>
+    <circle cx="260" cy="140" r="2.5"/>
+    <circle cx="300" cy="140" r="2.5"/>
+    <circle cx="340" cy="140" r="2.5"/>
+    <circle cx="380" cy="140" r="2.5"/>
+    <circle cx="420" cy="140" r="2.5"/>
+    <circle cx="460" cy="140" r="2.5"/>
+    <circle cx="500" cy="140" r="2.5"/>
+    <circle cx="540" cy="140" r="2.5"/>
+    <circle cx="580" cy="140" r="2.5"/>
+    <circle cx="620" cy="140" r="2.5"/>
+    <circle cx="660" cy="140" r="2.5"/>
+    <circle cx="700" cy="140" r="2.5"/>
+    <circle cx="740" cy="140" r="2.5"/>
+    <circle cx="780" cy="140" r="2.5"/>
   </g>
 
-  <!-- Power Pellets at Ends -->
-  <circle cx="48" cy="165" r="5" fill="#FFE600" class="pellet-blink"/>
-  <circle cx="802" cy="165" r="5" fill="#FFE600" class="pellet-blink"/>
+  <!-- Corner Pellets -->
+  <circle cx="38" cy="140" r="4.5" fill="#FFE600" class="blink"/>
+  <circle cx="812" cy="140" r="4.5" fill="#FFE600" class="blink"/>
 
-  <!-- Smooth Moving Characters -->
-  <!-- Ghost 3: Clyde (Orange) -->
-  <g class="ghost-clyde" transform="translate(0, 165)">
-    <path d="M -10 0 C -10 -11, 10 -11, 10 0 L 10 7 L 6 4 L 3 7 L 0 4 L -3 7 L -6 4 L -10 7 Z" fill="#FFB847"/>
-    <circle cx="-3" cy="-3" r="2.8" fill="#FFFFFF"/>
-    <circle cx="4" cy="-3" r="2.8" fill="#FFFFFF"/>
-    <circle cx="-2" cy="-3" r="1.4" fill="#0000FF"/>
-    <circle cx="5" cy="-3" r="1.4" fill="#0000FF"/>
-  </g>
+  <!-- The Chase Squad (Pacman leading, 2 ghosts chasing behind) -->
+  <g class="chase-squad" transform="translate(0, 140)">
+    
+    <!-- Ghost 2: Inky (Cyan) - 68px behind Pacman -->
+    <g transform="translate(-68, 0)">
+      <path d="M -9 0 C -9 -10, 9 -10, 9 0 L 9 6 L 6 3 L 3 6 L 0 3 L -3 6 L -6 3 L -9 6 Z" fill="#00FFFF"/>
+      <circle cx="-3" cy="-3" r="2.5" fill="#FFFFFF"/>
+      <circle cx="4" cy="-3" r="2.5" fill="#FFFFFF"/>
+      <circle cx="-2" cy="-3" r="1.3" fill="#0000FF"/>
+      <circle cx="5" cy="-3" r="1.3" fill="#0000FF"/>
+    </g>
 
-  <!-- Ghost 2: Inky (Cyan) -->
-  <g class="ghost-inky" transform="translate(0, 165)">
-    <path d="M -10 0 C -10 -11, 10 -11, 10 0 L 10 7 L 6 4 L 3 7 L 0 4 L -3 7 L -6 4 L -10 7 Z" fill="#00FFFF"/>
-    <circle cx="-3" cy="-3" r="2.8" fill="#FFFFFF"/>
-    <circle cx="4" cy="-3" r="2.8" fill="#FFFFFF"/>
-    <circle cx="-2" cy="-3" r="1.4" fill="#0000FF"/>
-    <circle cx="5" cy="-3" r="1.4" fill="#0000FF"/>
-  </g>
+    <!-- Ghost 1: Blinky (Red) - 34px behind Pacman -->
+    <g transform="translate(-34, 0)">
+      <path d="M -9 0 C -9 -10, 9 -10, 9 0 L 9 6 L 6 3 L 3 6 L 0 3 L -3 6 L -6 3 L -9 6 Z" fill="#FF0000"/>
+      <circle cx="-3" cy="-3" r="2.5" fill="#FFFFFF"/>
+      <circle cx="4" cy="-3" r="2.5" fill="#FFFFFF"/>
+      <circle cx="-2" cy="-3" r="1.3" fill="#0000FF"/>
+      <circle cx="5" cy="-3" r="1.3" fill="#0000FF"/>
+    </g>
 
-  <!-- Ghost 1: Blinky (Red) -->
-  <g class="ghost-blinky" transform="translate(0, 165)">
-    <path d="M -10 0 C -10 -11, 10 -11, 10 0 L 10 7 L 6 4 L 3 7 L 0 4 L -3 7 L -6 4 L -10 7 Z" fill="#FF0000"/>
-    <circle cx="-3" cy="-3" r="2.8" fill="#FFFFFF"/>
-    <circle cx="4" cy="-3" r="2.8" fill="#FFFFFF"/>
-    <circle cx="-2" cy="-3" r="1.4" fill="#0000FF"/>
-    <circle cx="5" cy="-3" r="1.4" fill="#0000FF"/>
-  </g>
+    <!-- Pac-Man Leading in Front (x = 0) -->
+    <g transform="translate(0, 0)">
+      <!-- Perfect solid yellow circle -->
+      <circle cx="0" cy="0" r="11" fill="#FFE600"/>
+      <!-- Mouth wedge that opens and closes forward -->
+      <polygon points="0,0 13,-9 13,9" class="mouth-wedge"/>
+    </g>
 
-  <!-- Pac-Man Leading -->
-  <g class="pacman-group" transform="translate(0, 165)">
-    <path class="mouth-t" d="M 0 0 L 12 0 A 12 12 0 0 0 -12 0 Z"/>
-    <path class="mouth-b" d="M 0 0 L 12 0 A 12 12 0 0 1 -12 0 Z"/>
   </g>
 
 </svg>

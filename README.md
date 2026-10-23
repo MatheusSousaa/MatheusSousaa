@@ -1,5 +1,5 @@
 <div align="center">
-  <img src="./pacman-header.svg" width="100%" alt="Header Matheus Sousa"/>
+  <img src="./pacman-header.svg?v=2" width="100%" alt="Header Matheus Sousa"/>
 </div>
 
 <br/>
@@ -15,9 +15,8 @@
     <img src="https://img.shields.io/badge/LINKEDIN-000000?style=for-the-badge&logo=linkedin&logoColor=00FF66" alt="LinkedIn" />
   </a>
   <a href="mailto:matheussoousa131@gmail.com">
-    <img src="https://img.shields.io/badge/GMAIL-000000?style=for-the-badge&logo=gmail&logoColor=00FF66" alt="Email" />
+    <img src="https://img.shields.io/badge/Gmail-matheussoousa131%40gmail.com-000000?style=for-the-badge&logo=gmail&logoColor=00FF66" alt="Email" />
   </a>
-  <img src="https://img.shields.io/badge/LOCALIZAÇÃO-BAHIA%2C_BRASIL-000000?style=for-the-badge&logo=google-maps&logoColor=00FF66" alt="Localização" />
 </div>
 
 <br/>
