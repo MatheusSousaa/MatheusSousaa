@@ -1,12 +1,10 @@
 <div align="center">
-  <img src="./pacman-header.svg?v=2" width="100%" alt="Header Matheus Sousa"/>
+  <img src="https://capsule-render.vercel.app/api?type=rect&color=0:0d1117,100:161b22&height=180&section=header&text=matheus@dev:~%24&fontSize=42&fontColor=00FF66&desc=%24%20cat%20profile.txt%20%7C%20grep%20--role%3D%22Junior%20%2F%20Intern%20Backend%22&descAlignY=65&descFontSize=17&descColor=7ee787" width="100%"/>
 </div>
-
-<br/>
 
 <div align="center">
   <a href="https://github.com/MatheusSousaa">
-    <img src="https://readme-typing-svg.demolab.com?font=Fira+Code&size=18&duration=2500&pause=1000&color=00FF66&center=true&vCenter=true&width=550&lines=System.out.println(%22Matheus+Sousa%22)%3B;Backend+Developer+%7C+Java+%26+Spring+Boot;Estudante+de+Engenharia+de+Software;Buscando+oportunidade+de+Est%C3%A1gio+%2F+J%C3%BAnior%3B" alt="Typing SVG" />
+    <img src="https://readme-typing-svg.demolab.com?font=Fira+Code&size=20&duration=2500&pause=1000&color=00FF66&center=true&vCenter=true&width=550&lines=System.out.println(%22Matheus+Sousa%22)%3B;Backend+Developer+%7C+Java+%26+Spring+Boot;Buscando+oportunidade+de+Est%C3%A1gio+%2F+J%C3%BAnior%3B" alt="Typing SVG" />
   </a>
 </div>
 
@@ -15,7 +13,7 @@
     <img src="https://img.shields.io/badge/LINKEDIN-000000?style=for-the-badge&logo=linkedin&logoColor=00FF66" alt="LinkedIn" />
   </a>
   <a href="mailto:matheussoousa131@gmail.com">
-    <img src="https://img.shields.io/badge/Gmail-matheussoousa131%40gmail.com-000000?style=for-the-badge&logo=gmail&logoColor=00FF66" alt="Email" />
+    <img src="https://img.shields.io/badge/GMAIL-000000?style=for-the-badge&logo=gmail&logoColor=00FF66" alt="Email" />
   </a>
 </div>
 
